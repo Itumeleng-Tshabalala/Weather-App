@@ -1,0 +1,36 @@
+<div class="forecast-table">
+  <div class="container">
+    <div class="forecast-container">
+      <div class="forecast">
+        <div class="forecast-header">
+          <div class="day text-bold">
+            {{ currentWeather.dt | date : "EEEE" }}
+          </div>
+          <div class="day">
+            {{
+              currentWeather?.dt | date : "dd/MM/yyyy hh:mm:ss a z" : "+02:00"
+            }}
+          </div>
+        </div>
+        <!-- .forecast-header -->
+        <div class="forecast-content">
+          <div class="forecast-icon">
+            <img
+              *ngIf="currentWeather?.weather"
+              src="http://openweathermap.org/img/wn/{{
+                currentWeather?.weather[0].icon
+              }}.png"
+              alt=""
+              width="48"
+            />
+          </div>
+          <div class="degree">
+            {{ currentWeather?.main?.temp_max }}<sup>o</sup
+            >{{ isCelcius ? "C" : "F" }}
+          </div>
+          <small>{{ currentWeather?.main?.temp_min }}<sup>o</sup></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

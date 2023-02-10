@@ -1,0 +1,20 @@
+<app-header
+  [city]="city"
+  (eventEmit)="
+    setIsCelcius($event);
+    getFiveDaysWeatherForecast($event);
+    getCurrentWeather($event)
+  "
+></app-header>
+<app-current-weather
+  [isCelcius]="isCelcius"
+  [currentWeather]="currentWeather"
+></app-current-weather>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<app-town-list [forecast]="forecasts" [isCelcius]="isCelcius"></app-town-list>
+<app-footer></app-footer>

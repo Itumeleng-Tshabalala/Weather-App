@@ -1,0 +1,32 @@
+<div class="forecast-table">
+  <div class="container">
+    <div class="forecast-container">
+      <div class="forecast" *ngFor="let item of forecast">
+        <div class="forecast-header">
+          <div class="day text-bold">
+            {{ item.dt_txt | date : "EEEE" }}
+          </div>
+          <div class="day">
+            {{ item.dt_txt | date : "dd/MM/yyyy hh:mm:ss a z" : "+02:00" }}
+          </div>
+        </div>
+        <!-- .forecast-header -->
+        <div class="forecast-content">
+          <div class="forecast-icon">
+            <img
+              src="http://openweathermap.org/img/wn/{{
+                item.weather[0].icon
+              }}.png"
+              alt=""
+              width="48"
+            />
+          </div>
+          <div class="degree">
+            {{ item.main.temp_max }}<sup>o</sup>{{ isCelcius ? "C" : "F" }}
+          </div>
+          <small>{{ item.main.temp_min }}<sup>o</sup></small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
